@@ -10,7 +10,9 @@ import {
 } from "react-native";
 import { Icon } from "react-native-elements";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useSelector } from "react-redux";
 import tw from "tailwind-react-native-classnames";
+import { selectTravelTimeInfo } from "../slices/navSlice";
 
 const data = [
   {
@@ -33,22 +35,27 @@ const data = [
   },
 ];
 
+const SURGE_CHARGE_RATE = 1.5;
+
 const RideOptionsCard = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = useState(null);
+  const travelTimeInfo = useSelector(selectTravelTimeInfo);
   return (
-    <SafeAreaView style={tw`bg-white flex-grow`}>
+    <View style={tw`bg-white flex-grow py-4`}>
       <View>
         <TouchableOpacity
           onPress={() => navigation.navigate("NavigateCard")}
           style={[
-            tw`top-3 left-5 z-50 p-3 rounded-full`,
+            tw` left-5 z-50 rounded-full top-3`,
             { position: "absolute" },
           ]}
         >
           <Icon name="chevron-left" type="font-awesome" />
         </TouchableOpacity>
-        <Text style={tw`text-center py-5 text-lg`}>Select a ride</Text>
+        <Text style={tw`text-center text-lg py-3`}>
+          Select a ride - {travelTimeInfo?.distance.text}
+        </Text>
       </View>
       <FlatList
         data={data}
@@ -66,15 +73,35 @@ const RideOptionsCard = () => {
             />
             <View style={tw`-ml-6`}>
               <Text style={tw`text-xl font-semibold`}>{title}</Text>
-              <Text>Travel Time</Text>
+              <Text>{travelTimeInfo?.duration.text} Travel Time</Text>
             </View>
-            <Text style={tw`text-lg`}>£99</Text>
+            <Text style={tw`text-lg`}>
+              {new Intl.NumberFormat("en-gb", {
+                style: "currency",
+                currency: "GBP",
+              }).format(
+                (travelTimeInfo?.duration.value *
+                  SURGE_CHARGE_RATE *
+                  multiplier) /
+                  100
+              )}
+            </Text>
           </TouchableOpacity>
         )}
       />
 
       {/* TODO Start with button at bottom timestamp:11628 */}
-    </SafeAreaView>
+      <View style={tw`mt-auto border-t border-gray-200`}>
+        <TouchableOpacity
+          disabled={!selected}
+          style={tw`bg-black py-3 m-3 ${!selected && "bg-gray-300"}`}
+        >
+          <Text style={tw`text-center text-white text-xl`}>
+            Choose {selected?.title}
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 };
 
