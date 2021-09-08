@@ -53,7 +53,6 @@ const HomeScreen = () => {
             language: "en",
           }}
         />
-
         <NavOptions />
         <NavFavourites />
       </View>

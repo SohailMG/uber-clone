@@ -4,6 +4,8 @@ import { StyleSheet, Text, View } from "react-native";
 import { Icon } from "react-native-elements/dist/icons/Icon";
 import tw from "tailwind-react-native-classnames";
 
+
+
 const data = [
   {
     id: "12",
@@ -28,7 +30,9 @@ const NavFavourites = () => {
           <View style={[tw`bg-gray-300`,{height:0.5}]}/>
       )}
       renderItem={({ item: { icon, location, destination } }) => (
-        <TouchableOpacity style={tw`flex-row items-center p-5`}>
+        <TouchableOpacity 
+
+        style={tw`flex-row items-center p-5`}>
           <Icon
             style={tw`mr-4 rounded-full bg-gray-300 p-3`}
             name={icon}
