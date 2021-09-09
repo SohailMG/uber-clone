@@ -1,3 +1,5 @@
+// TODO remove Old home screen instances
+
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
 import tw from "tailwind-react-native-classnames";
