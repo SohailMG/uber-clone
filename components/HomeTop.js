@@ -11,7 +11,7 @@ import tw from "tailwind-react-native-classnames";
 
 const HomeTop = () => {
   return (
-    <View style={[tw`h-1/2 `, { backgroundColor: "#4CA05A" }]}>
+    <View style={[tw`h-1/3 `, { backgroundColor: "#4CA05A" }]}>
       <SafeAreaView style={tw`flex `}>
         {/* TOP header */}
         <View style={tw`flex flex-row justify-between`}>
@@ -30,7 +30,7 @@ const HomeTop = () => {
           </TouchableOpacity>
         </View>
         {/* Middle header */}
-        <View style={[tw`p-6 mt-24`, { width: 330 }]}>
+        <View style={[tw`p-6 `, { width: 330 }]}>
           <Text style={tw`font-bold text-white text-xl mb-4`}>
             Bring the shopping to you
           </Text>

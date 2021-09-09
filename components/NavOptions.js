@@ -17,7 +17,7 @@ const data = [
     id: "456",
     title: "Order Food",
     image: "http://links.papareact.com/28w",
-    screen: "HeroScreen",
+    screen: "HomeScreen",
   },
 ];
 
@@ -30,8 +30,6 @@ const NavOptions = () => {
       data={data}
       keyExtractor={(item) => item.id}
       renderItem={({ item: { title, image, screen } }) => (
-
-        
         <TouchableOpacity
           disabled={!origin && screen == "MapScreen"}
           onPress={() => navigation.navigate(screen)}
