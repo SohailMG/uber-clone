@@ -1,19 +1,24 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import tw from 'tailwind-react-native-classnames'
 import HomeMiddle from '../components/HomeMiddle';
 import HomeTop from '../components/HomeTop';
-
+import HomeBottom from '../components/HomeBottom';
+import NavFavourites from '../components/NavFavourites';
 const HeroScreen = () => {
     return (
-      <View style={tw`flex-1`}>
+      <View style={tw`flex-1 bg-white`}>
         <View style={tw`flex-1`}>
           {/* TOP VIEW */}
-          <HomeTop/>
+          <HomeTop />
           {/* Middle VIEW */}
-          <HomeMiddle/>
+          <HomeMiddle />
           {/* Bottom VIEW */}
-          <View></View>
+          <View>
+              <HomeBottom/>
+          </View>
+          <NavFavourites/>
         </View>
       </View>
     );

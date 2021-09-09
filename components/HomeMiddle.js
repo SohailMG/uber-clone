@@ -1,6 +1,9 @@
+import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { FlatList, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useSelector } from "react-redux";
 import tw from "tailwind-react-native-classnames";
+import { selectOrigin } from "../slices/navSlice";
 const data = [
   {
     id: "123",
@@ -35,6 +38,8 @@ const data = [
   },
 ];
 const HomeMiddle = () => {
+    const navigation = useNavigation();
+    const origin = useSelector(selectOrigin);
   return (
     <SafeAreaView style={tw`border-b border-gray-200`}>
       <FlatList
@@ -42,7 +47,7 @@ const HomeMiddle = () => {
         horizontal
         keyExtractor={(item) => item.id}
         renderItem={({ item: { title, image, screen } }) => (
-          <TouchableOpacity style={tw`p-2 `}>
+          <TouchableOpacity style={tw`p-2 `} onPress={() => navigation.navigate(screen)} disabled={!origin}>
             <View style={tw`items-center bg-gray-200 rounded-xl p-2 mb-2`}>
               <Image
                 style={{ width: 50, height: 50, resizeMode: "contain" }}

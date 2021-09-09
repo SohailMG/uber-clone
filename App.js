@@ -22,11 +22,6 @@ export default function App() {
           >
             <Stack.Navigator>
               <Stack.Screen
-                name="HomeScreen"
-                component={HomeScreen}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
                 name="HeroScreen"
                 component={HeroScreen}
                 options={{ headerShown: false }}

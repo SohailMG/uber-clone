@@ -16,7 +16,7 @@ const MapScreen = () => {
     <View>
       {/* MENU BUTTON */}
       <TouchableOpacity
-      onPress={() => navigation.navigate("HomeScreen")}
+      onPress={() => navigation.navigate("HeroScreen")}
         style={tw`bg-gray-100 z-50 absolute top-16 left-8 p-3 rounded-full shadow-lg`}
       >
         <Icon name="menu" />
