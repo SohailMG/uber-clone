@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, KeyboardAvoidingView, Platform } from "react-native";
 import { Provider } from "react-redux";
 import HomeScreen from "./screens/HomeScreen";
+import HeroScreen from "./screens/HeroScreen";
 import { store } from "./store";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
@@ -23,6 +24,11 @@ export default function App() {
               <Stack.Screen
                 name="HomeScreen"
                 component={HomeScreen}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="HeroScreen"
+                component={HeroScreen}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
